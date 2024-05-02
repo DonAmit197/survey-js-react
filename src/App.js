@@ -28,7 +28,8 @@ import "jquery-bar-rating";
 
 // import "icheck/skins/square/blue.css";
 // require("icheck");
-
+import SurveyCreator from "./components/SurveyCreator";
+import { json } from './data/survey_json';
 import * as widgets from "surveyjs-widgets";
 
 window["$"] = window["jQuery"] = $;
@@ -49,69 +50,73 @@ widgets.bootstrapslider(Survey);
 
 export default function SurveyJSReactApplication() {
   return (
-    <Router>
-      <div>
-        <nav className="navbar navbar-default">
-          <div className="container-fluid">
-            <div className="navbar-header">
-              <a className="navbar-brand" href="/">
-                SurveyJS + React
-              </a>
-            </div>
-            <ul className="nav navbar-nav">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/survey">Survey</Link>
-              </li>
-              <li>
-                <Link to="/creator">Survey Creator</Link>
-              </li>
-              <li>
-                <Link to="/export">PDF Export</Link>
-              </li>
-              <li>
-                <Link to="/analytics">Analytics</Link>
-              </li>
-              <li>
-                <Link to="/analyticstabulator">Results Table</Link>
-              </li>
-              <li>
-                <Link to="/analyticsdatatables">
-                  Results Table (IE Support)
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </nav>
+    // <Router>
+    //   <div>
+    //     <nav className="navbar navbar-default">
+    //       <div className="container-fluid">
+    //         <div className="navbar-header">
+    //           <a className="navbar-brand" href="/">
+    //             SurveyJS + React
+    //           </a>
+    //         </div>
+    //         <ul className="nav navbar-nav">
+    //           <li>
+    //             <Link to="/">Home</Link>
+    //           </li>
+    //           <li>
+    //             <Link to="/survey">Survey</Link>
+    //           </li>
+    //           <li>
+    //             <Link to="/creator">Survey Creator</Link>
+    //           </li>
+    //           <li>
+    //             <Link to="/export">PDF Export</Link>
+    //           </li>
+    //           <li>
+    //             <Link to="/analytics">Analytics</Link>
+    //           </li>
+    //           <li>
+    //             <Link to="/analyticstabulator">Results Table</Link>
+    //           </li>
+    //           <li>
+    //             <Link to="/analyticsdatatables">
+    //               Results Table (IE Support)
+    //             </Link>
+    //           </li>
+    //         </ul>
+    //       </div>
+    //     </nav>
 
-        <div className="app-content">
-          <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-            <Route path="/survey">
-              <SurveyPage />
-            </Route>
-            <Route path="/creator">
-              <CreatorPage />
-            </Route>
-            <Route path="/export">
-              <ExportToPDFPage />
-            </Route>
-            <Route path="/analytics">
-              <AnalyticsPage />
-            </Route>
-            <Route path="/analyticsdatatables">
-              <AnalyticsDatatablesPage />
-            </Route>
-            <Route path="/analyticstabulator">
-              <AnalyticsTabulatorPage />
-            </Route>
-          </Switch>
-        </div>
-      </div>
-    </Router>
+    //     <div className="app-content">
+    //       <Switch>
+    //         <Route exact path="/">
+    //           <HomePage />
+    //         </Route>
+    //         <Route path="/survey">
+    //           <SurveyPage />
+    //         </Route>
+    //         <Route path="/creator">
+    //           <CreatorPage />
+    //         </Route>
+    //         <Route path="/export">
+    //           <ExportToPDFPage />
+    //         </Route>
+    //         <Route path="/analytics">
+    //           <AnalyticsPage />
+    //         </Route>
+    //         <Route path="/analyticsdatatables">
+    //           <AnalyticsDatatablesPage />
+    //         </Route>
+    //         <Route path="/analyticstabulator">
+    //           <AnalyticsTabulatorPage />
+    //         </Route>
+    //       </Switch>
+    //     </div>
+    //   </div>
+    // </Router>
+    <div className="bc-survey-wrapper">
+      <SurveyCreator json={json} />
+    </div>
+
   );
 }
